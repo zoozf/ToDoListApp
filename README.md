@@ -9,7 +9,6 @@ System implementation uses:
 - JavaScript to render visual display
 - Figma for UI/UX design
 - CSS for UI/UX design implementation
-- Uses local storage
 
 <hr> 
 The ToDoListApp:<br>
