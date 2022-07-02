@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyAppTitle</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/myapp.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+<body>
+    <header></header>
+<main>
+</main>
+<canvas id="myChart"></canvas>
+<div class="navbar" id="myNavbar">
+<a id="homeView">[Home]</a>
+<a id="activitiesView">[Activities]</a>
+</div>
+<script src="js/model/activity.js"></script>
+<script src="js/model/activities.js"></script>
+<script src="js/model/entry.js"></script>
+<script src="js/model/journal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script src="js/view/homeView.js"></script>
+<script src="js/view/activitiesView.js"></script>
+<script src="js/controller/activitiesController.js"></script>
+<script src="js/controller/homeController.js"></script>
+<script src="js/model/model.js"></script>
+    <script>
+    model = new Model();
+    new HomeController(model.getActivities());
+
+    document.getElementById("activitiesView").addEventListener('click', e => {
+        new ActivitiesController(model.getActivities());
+    })
+    document.getElementById("homeView").addEventListener('click', e => {
+        new HomeController(model.getActivities());
+    });
+</script>
+</body>
+</html>

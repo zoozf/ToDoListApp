@@ -1,0 +1,46 @@
+input {
+  -webkit-user-select: text; /* Chrome, Opera, Safari */
+  -moz-user-select: text; /* Firefox 2+ */
+  -ms-user-select: text; /* IE 10+ */
+  user-select: text; /* Standard syntax */
+}
+body {
+    margin:0; padding:0;
+    font-family: sans-serif;
+  }
+main{
+}
+
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar a {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .navbar a.active {
+    background-color: #c2c2c2;
+    color: white;
+  }
+
+  .act-list-item{
+  }
+
+  .pageTitle{
+  }
+  .journalDate{
+  }
+  header{
+    text-align: center;
+  }
