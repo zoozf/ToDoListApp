@@ -7,8 +7,18 @@ input {
 body {
     margin:0; padding:0;
     font-family: sans-serif;
+    display: block;
   }
 main{
+}
+
+header{
+  padding: 2rem;
+  background-color: #009988;
+  text-align-all: left;
+  color:white;
+  font-size: 1.6rem;
+  font-weight: bold;
 }
 
 .navbar {
@@ -16,31 +26,161 @@ main{
     bottom: 0;
     width: 100%;
     text-align: center;
+    border-style: solid;
+    border-top-color: #cccccc;
+    background-color: white;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
   }
 
   .navbar a {
     display: inline-block;
     text-align: center;
     text-decoration: none;
+    padding: 3% 10% 1% 10%;
   }
 
   .navbar a:hover {
-    background-color: #ddd;
+    background-color: #D9F0ED;
     color: black;
   }
 
   .navbar a.active {
-    background-color: #c2c2c2;
+    background-color: #D9F0ED;
     color: white;
   }
-
-  .act-list-item{
+  #quote {
+    padding: 3%;
   }
 
-  .pageTitle{
+  #quote > p {
+    margin-left: 2%;
+    padding-left: 5%;
+    font-size: 0.8rem;
   }
-  .journalDate{
+
+  #quote > p:first-of-type {
+    background-color: #D9F0ED;
+    margin: 0 2% 0 2% ;
+    padding: 5%;
+    font-size: 1rem;
+    border-radius: 2em;
   }
-  header{
+
+  .next-activity-div{
+    padding: 0 3% 3% 3%;
+  }
+
+  dl {
+    padding-left: 10%;
+    list-style: none;
     text-align: center;
   }
+  .list-item {
+    font-size: 1.1rem;
+    background-color: #D9F0ED;
+    padding: 2%;
+    border-radius: 2em;
+  }
+  .act-list-item > p {
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+
+  #chart-div{
+    margin-bottom: 10%;
+    bottom: 10%;
+  }
+
+  #activities-list{
+    padding: 3%;
+  }
+
+  #add-activity-btn{
+    display: block;
+    width: 100%;
+    background-color: #009988;
+    padding: 3%;
+    color: white;
+    border: none;
+    position: absolute;
+    bottom: 10%;
+    font-size: 1.3rem;
+  }
+
+  #activity-details > p {
+    padding: 10% 5%;
+  }
+
+  #completed-btn{
+    display: block;
+    width:50%;
+    background-color: #009988;
+    border: none;
+    color: white;
+    padding: 3%;
+    float: left;
+  }
+
+  #new-activity > h3 {
+    display: block;
+    width: 80%;
+  }
+
+  #del-btn{
+    display:block;
+    padding: 3%;
+    width: 50%;
+    border: none;
+    background-color: #dddddd;
+    color: #333333;
+  }
+
+  .activity-description{
+    font-style: italic;
+    font-weight: lighter;
+  }
+
+  .right-text{
+    float: right;
+  }
+
+#create-activity-btn{
+  display: block;
+  width:50%;
+  background-color: #009988;
+  border: none;
+  color: white;
+  padding: 3%;
+  float: left;
+}
+
+#go-back-btn{
+  display:block;
+  padding: 3%;
+  width: 50%;
+  border: none;
+  background-color: white;
+  color: #333333;
+}
+#new-activity{
+  padding: 3%;
+}
+
+#new-activity > h3{
+  float: left;
+  font-weight: bold;
+}
+
+input {
+  margin: 3% 0;
+  padding: 2%;
+  border-radius: 2em;
+  border-color: #cccccc;
+  display: block;
+  width: 80%;
+  font-size: 0.8em;
+  overflow: hidden;
+}
+

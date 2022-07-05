@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MyAppTitle</title>
+    <title>ToDoList Mobile App</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/myapp.css">
 
@@ -10,14 +10,34 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
 <body>
+
     <header></header>
+
 <main>
 </main>
-<canvas id="myChart"></canvas>
+    <div class="chart-div">
+      <canvas id="myChart"></canvas>
+    </div>
+
 <div class="navbar" id="myNavbar">
-<a id="homeView">[Home]</a>
-<a id="activitiesView">[Activities]</a>
+<a id="homeView"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8.33333 20H5L20 5L35 20H31.6667" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M8.33334 20V31.6667C8.33334 32.5507 8.68453 33.3986 9.30965 34.0237C9.93477 34.6488 10.7826 35 11.6667 35H28.3333C29.2174 35 30.0652 34.6488 30.6904 34.0237C31.3155 33.3986 31.6667 32.5507 31.6667 31.6667V20" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M15 35V25C15 24.1159 15.3512 23.2681 15.9763 22.643C16.6014 22.0178 17.4493 21.6667 18.3333 21.6667H21.6667C22.5507 21.6667 23.3986 22.0178 24.0237 22.643C24.6488 23.2681 25 24.1159 25 25V35" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
+<a id="activitiesView"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5.83333 9.16667L8.33333 11.6667L12.5 7.5" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M5.83333 19.1667L8.33333 21.6667L12.5 17.5" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M5.83333 29.1667L8.33333 31.6667L12.5 27.5" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.3333 10H33.3333" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.3333 20H33.3333" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.3333 30H33.3333" stroke="#009988" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</a>
 </div>
+
+
 <script src="js/model/activity.js"></script>
 <script src="js/model/activities.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>

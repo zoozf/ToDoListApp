@@ -2,11 +2,14 @@ class Activities {
 
     constructor(){
         this.activitiesList = [];
+        this.loadActivities();
         this.completed = {'Monday':0, 'Tuesday':0,'Wednesday':0, 'Thursday':0, 'Friday':0, 'Saturday':0,'Sunday':0};
     }
 
     addActivity(activity) {
         this.activitiesList.push(activity);
+        localStorage.setItem("user", "list");
+        console.log(this.activitiesList)
     }
 
     deleteActivity(activity) {
@@ -17,8 +20,8 @@ class Activities {
         }
     }
 
-    clearActivitiesList(){
-        this.activitiesList = [];
+    loadActivities(){
+      localStorage.getItem("user")
     }
 
     updateActivity(activity,field,newValue) {

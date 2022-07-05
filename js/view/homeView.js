@@ -15,8 +15,13 @@ class HomeView {
 
         this.container = this.createElement('div');
         this.container.id = "quote";
-        this.main.append(this.container);
+        this.container.textContent = '';
 
+        this.quoteheader = this.createElement('h3');
+        this.quoteheader.textContent = "Motivational Quote";
+        this.container.append(this.quoteheader);
+
+        this.main.append(this.container);
 
         this.renderQuote();
 
@@ -42,13 +47,13 @@ class HomeView {
         let hour = currentDate.getHours();
 
         if (hour >= 0 && hour < 12) {
-            return "Good morning! ☕ ";
+            return "Good Morning!  🌣";
 
         } else if (hour >= 12 && hour < 17) {
-            return "Good afternoon! 🌇 ";
+            return "Good Afternoon!  ☁ ";
 
         } else if (hour >= 17 && hour < 24) {
-            return "Good evening! 🌃";
+            return "Good Evening!  🌙";
         }
     }
 
@@ -70,11 +75,11 @@ class HomeView {
                 quotePara.style.fontStyle = "italic";
                 container.appendChild(quotePara);
 
-                let authorPara = document.createElement("h5");
+                let authorPara = document.createElement("p");
                 if(quote.author) {
-                    authorPara.innerHTML  ="Author: " + quote.author;
+                    authorPara.innerHTML  ="— " + quote.author;
                 } else {
-                    authorPara.innerHTML  ="Author: unknown";
+                    authorPara.innerHTML  ="— unknown";
                 }
                 container.appendChild(authorPara)
             } else {
@@ -86,65 +91,76 @@ class HomeView {
 
     renderNextActivity(){
         let nextDiv = this.createElement("div");
-        let nextText = this.createElement("p");
-        nextText.innerHTML = "Next activity: ";
+        nextDiv.setAttribute("class", "next-activity-div")
+        let nextText = this.createElement("h3");
+        nextText.innerHTML = "Next activity";
 
         nextDiv.appendChild(nextText);
         this.main.appendChild(nextDiv);
         let para = this.createElement("p");
         //Retrieve the first non-completed activity in the list.
-        let nextActvity = undefined
+        let nextActivity = undefined
         for(let i = 0; i < this.userActivities.activitiesList.length; i++){
             if(this.userActivities.activitiesList[i].completed === false){
-                nextActvity = this.userActivities.activitiesList[i]
+                nextActivity = this.userActivities.activitiesList[i]
                 break
             }
         }
-        if(nextActvity === undefined){
-            para.innerHTML = "Rest 🏖️";
+        if(nextActivity === undefined){
+            para.innerHTML = "⛱ Rest. You have completed all your tasks!";
             nextDiv.appendChild(para);
         } else {
             let ul = this.createElement('dl');
             ul.setAttribute("id","activities-list");
-            let div = this.createElement('div', 'act-list-item')//new
-            let li = this.createElement('li')
-            li.innerHTML = nextActvity.name;
+            let div = this.createElement('div', 'act-list-item');
+            let li = this.createElement('li');
+            li.innerHTML = nextActivity.name;
             li.setAttribute("class","list-item");
-            li.setAttribute("value",nextActvity.id);
+            li.setAttribute("value",nextActivity.id);
             let p = this.createElement('p');
-            p.innerHTML = "--- "+nextActvity.description;
-            div.appendChild(li); //new
-            div.appendChild(p) //new
-            ul.appendChild(div) //
-            nextDiv.appendChild(ul)
+            p.innerHTML =nextActivity.description;
+            div.appendChild(li);
+            div.appendChild(p);
+            ul.appendChild(div);
+            nextDiv.appendChild(ul);
         }
     }
 
     renderStats() {
         let chart = document.getElementById("myChart");
-        let weekdays = ['Monday', 'Tuesday','Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'];
+        let weekdays = ['MON', 'TUE','WED', 'THU', 'FRI', 'SAT','SUN'];
 
         let stats = model.activities.getStats();
         let myChart = new Chart(chart, {
             type: 'bar',
             data: {
-                labels: weekdays,
-                datasets: [
-                    {
-                        label: "Weekly activities completed",
-                        data: stats,
-                        backgroundColor: [
-                            "rgba(11, 132, 165,0.7)",
-                            "rgba(246, 200, 95,0.7)",
-                            "rgba(111, 78, 124,0.7)",
-                            "rgba(157, 216, 102,0.7)",
-                            "rgba(202, 71, 47,0.7)",
-                            "rgba(255, 160, 86,0.7)",
-                            "rgba(141, 221, 208,0.5)",
-                        ]
-                    }
-                ]
+              labels: weekdays,
+              datasets: [{
+                label: 'Weekly Performance',
+                data: stats,
+                fill: false,
+                borderColor: '#009988',
+                backgroundColor: '#009988',
+                tension: 0.1
+              }]
             },
+          options: {
+            maintainAspectRatio: true,
+            aspectRatio: 2,
+            legend: {
+              display: true,
+              position:'top',
+              align:'start',
+            },
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true,
+                  display: false
+                }
+              }]
+            }
+          }
         });
     }
 }

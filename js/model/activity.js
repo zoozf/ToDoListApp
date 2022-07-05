@@ -6,4 +6,5 @@ class Activity{
         this.completed = false;
         this.dayCompleted = null;
     }
+
 }

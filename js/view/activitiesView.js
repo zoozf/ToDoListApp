@@ -2,7 +2,7 @@ class ActivitiesView {
     constructor(activities) {
         //App section header
         this.header = document.getElementsByTagName("header")[0];
-        this.header.textContent = '----- Activities -----'
+        this.header.textContent = "To Do List"
 
         this.userActivities = activities
         this.main = document.getElementsByTagName('main')[0];
@@ -20,7 +20,7 @@ class ActivitiesView {
         } else {
             this.renderActivitiesList();
         }
-        this.renderBtn("add-activity-btn","Add a new activity");
+        this.renderBtn("add-activity-btn","+ add new activity");
     }
 
     // create a HTML element
@@ -45,8 +45,6 @@ class ActivitiesView {
         let addActivityBtn = this.createElement('button');
         addActivityBtn.id = id;
         addActivityBtn.innerHTML = text;
-        addActivityBtn.style.height = '5rem';
-        addActivityBtn.style.width = '5rem';
         this.main.append(addActivityBtn);
     }
 
@@ -61,7 +59,7 @@ class ActivitiesView {
             li.setAttribute("class","list-item");
             li.setAttribute("value",this.userActivities.activitiesList[i].id);
             let p = this.createElement('p');
-            p.innerHTML = "--- "+this.userActivities.activitiesList[i].description;
+            p.innerHTML = this.userActivities.activitiesList[i].description;
             div.appendChild(li); //new
             div.appendChild(p) //new
             ul.appendChild(div) //new
@@ -72,34 +70,34 @@ class ActivitiesView {
     /** creates the page show for adding the new activity*/
     renderNewActivityPage(){
         this.main.innerHTML = "";
-        this.renderBtn("go-back-btn","< Go back");
         //App section header
         this.header = document.getElementsByTagName("header")[0];
-        this.header.textContent = '----- Create new activity -----'
+        this.header.textContent = 'Add new activity'
 
         let container = this.createElement('div');
         container.id = "new-activity";
         this.main.append(container);
 
-        let nameField = this.createElement("p");
+        let nameField = this.createElement("h3");
         nameField.innerHTML = "Activity ";
         container.append(nameField);
 
         let name = this.createElement('input');
         name.id= "new-activity-name";
         name.placeholder = "Enter a new activity";
-        nameField.append(name);
+        container.append(name);
 
-        let description = this.createElement("p");
+        let description = this.createElement("h3");
         description.innerHTML = "Description ";
         container.append(description);
 
         let descriptionField = this.createElement('input');
         descriptionField.id= "new-activity-description";
         descriptionField.placeholder = "Enter description/notes";
-        description.append(descriptionField);
+        container.append(descriptionField);
 
         this.renderBtn("create-activity-btn","Create new activity");
+        this.renderBtn("go-back-btn","Cancel");
     }
 
 
@@ -113,10 +111,9 @@ class ActivitiesView {
      *  */
     renderActivityDetailsPage(){
         this.main.innerHTML = "";
-        this.renderBtn("go-back-btn","< Go back");
         //App section header
         this.header = document.getElementsByTagName("header")[0];
-        this.header.textContent = '----- Activity Details -----'
+        this.header.textContent = 'Activity Details'
 
         let container = this.createElement('div');
         container.id = "activity-details";
@@ -124,21 +121,21 @@ class ActivitiesView {
         for (let i = 0; i<=this.userActivities.activitiesList.length-1; i++){
            if(event.target.value === this.userActivities.activitiesList[i].id){
                let name = this.createElement("p");
-               name.innerHTML = "<b>Name</b> " + this.userActivities.activitiesList[i].name;
+               name.innerHTML = "<b>Activity</b> " + this.userActivities.activitiesList[i].name;
                container.append(name);
 
                let desc = this.createElement("p");
-               desc.innerHTML = "<b>Description</b><br> " + this.userActivities.activitiesList[i].description;
+               desc.innerHTML = "<b>Activity Description</b><br><span class='activity-description'>" + this.userActivities.activitiesList[i].description + "</span>";
                container.append(desc);
 
                let status = this.createElement("p");
                if (this.userActivities.activitiesList[i].completed === true) {
-                   status.innerHTML = "<b>Status</b> completed";
+                   status.innerHTML = "<b>Status</b> <span class='right-text'>Completed</span>";
                    container.append(status);
                } else {
-                   status.innerHTML = "<b>Status</b> pending";
+                   status.innerHTML = "<b>Status</b> <span class='right-text'>Pending</span>";
                    container.append(status);
-                   this.renderBtn("completed-btn","Done!");
+                   this.renderBtn("completed-btn","Complete");
 
                    this.completedBtnClickListener( () =>{
                        this.userActivities.updateActivity(this.userActivities.activitiesList[i],"completed",true);
@@ -151,7 +148,7 @@ class ActivitiesView {
                        });
                    });
                }
-               this.renderBtn("del-btn","Delete activity");
+               this.renderBtn("del-btn","Delete");
                this.delBtnClickListener( () =>{
                    this.userActivities.deleteActivity(this.userActivities.activitiesList[i]);
                    this.main.innerHTML = "";

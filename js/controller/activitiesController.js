@@ -4,7 +4,7 @@ class ActivitiesController{
         this.view.addBtnClickListener( () =>{
             this.view.renderNewActivityPage();
         });
-        
+
         window.onclick = e => {
             if(e.target.id ==="go-back-btn"){
                 this.view.main.innerHTML = "";
@@ -16,7 +16,7 @@ class ActivitiesController{
                 this.view.createActivity();
                 this.view.main.innerHTML = "";
                 new ActivitiesView(activities);
-                this.view.addBtnClickListener( () =>{
+                this.view.addBtnClickListener(() =>{
                     this.view.renderNewActivityPage();
                 });
             } else if (e.target.className ==="list-item"){
@@ -27,5 +27,5 @@ class ActivitiesController{
             }
         }
     }
-    
+
 }
