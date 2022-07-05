@@ -55,7 +55,12 @@ class ActivitiesView {
         for (let i = 0; i<=this.userActivities.activitiesList.length-1; i++){
             let div = this.createElement('div', 'act-list-item')//new
             let li = this.createElement('li')
-            li.innerHTML = this.userActivities.activitiesList[i].name;
+            if(this.userActivities.activitiesList[i].completed) {
+              li.innerHTML = this.userActivities.activitiesList[i].name + "\t✓";
+            } else {
+              li.innerHTML = this.userActivities.activitiesList[i].name
+            }
+
             li.setAttribute("class","list-item");
             li.setAttribute("value",this.userActivities.activitiesList[i].id);
             let p = this.createElement('p');

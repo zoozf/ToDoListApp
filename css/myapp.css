@@ -10,6 +10,7 @@ body {
     display: block;
   }
 main{
+  overflow-y: scroll;
 }
 
 header{
@@ -88,10 +89,15 @@ header{
     font-style: italic;
   }
 
-  #chart-div{
+  #myChart{
     margin-bottom: 10%;
-    bottom: 10%;
   }
+
+@media screen and (max-width: 800px) {
+  #myChart{
+    margin: 20% 0 0 0;
+  }
+}
 
   #activities-list{
     padding: 3%;
@@ -104,14 +110,28 @@ header{
     padding: 3%;
     color: white;
     border: none;
-    position: absolute;
-    bottom: 10%;
     font-size: 1.3rem;
+    margin-bottom: 10%;
   }
 
+
+@media screen and (max-width: 800px) {
+  #add-activity-btn{
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 10%;
+  }
+}
+
+  #activity-details > p {
+    padding: 2.5% 1%;
+  }
+
+@media screen and (max-width: 800px) {
   #activity-details > p {
     padding: 10% 5%;
   }
+}
 
   #completed-btn{
     display: block;
@@ -143,7 +163,8 @@ header{
   }
 
   .right-text{
-    float: right;
+    position: absolute;
+    right: 50%;
   }
 
 #create-activity-btn{
@@ -164,6 +185,21 @@ header{
   background-color: white;
   color: #333333;
 }
+
+@media screen and (max-width: 800px) {
+  #go-back-btn {
+    position: absolute;
+    bottom: 10%;
+    right: 0;
+  }
+  #create-activity-btn{
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+  }
+}
+
+
 #new-activity{
   padding: 3%;
 }
@@ -184,3 +220,14 @@ input {
   overflow: hidden;
 }
 
+@media screen and (max-width: 800px) {
+  input{
+    padding: 20% 7%;
+  }
+  input:first-of-type{
+    padding: 5% 7%  ;
+  }
+  #new-activity > h3{
+    margin-top: 15%;
+  }
+}
